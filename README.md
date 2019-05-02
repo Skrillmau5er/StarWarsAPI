@@ -8,4 +8,4 @@ To show All Star Wars Movies and various Information about them. In the list vie
 The detail view gives some more information as well as a up/down vote feature. 
 
 ## Implementation
-I choose to use Vue.js to build this application for easy re-rendering. 
+I choose to use [Vue.js](https://vuejs.org/) to build this application for easy re-rendering. 
