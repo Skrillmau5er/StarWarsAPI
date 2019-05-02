@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>Star Wars</title> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="styles/base.css">
+        <link rel="stylesheet" href="styles/detail.css">
+        <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
+        <link rel="icon" href="media/death-star.png">
+        <script defer src="js/detail.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">
+            <img src="media/death-star.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            Star Wars
+        </a>
+        </nav>
+        <h2 id="waitMessage"> Waiting for API </h2>
+        <div id="loader"></div>
+        <div id="detailView">
+            <div class="jumbotron">
+                <h2 style="color:white;">{{movie.title}}</h2>
+            </div>
+            <a href="index.html"><h4 id="back">< Back to List View</h4></a>
+            <div class="row">
+                <img class="thumb" src="media/thumbs-up.png" @click='likes++'><h3 class="likes">{{likes}}</h3>
+                <img class="thumb" src="media/thumbs-down.png" @click='dislikes++'><h3 class="likes">{{dislikes}}</h3>
+            </div>
+            <div class="row">
+                <div id="pic" class="col-lg-4">
+                    <img v-bind:src="'media/episode-' + movie.episode_id + '.jpg'" id="moviePic" />
+                </div>
+                <div id="info" class="col-lg-4">
+                    <h3><u>Episode:</u> {{movie.episode_id}}</h3>
+                    <h3><u>Director:</u>  {{movie.director}}</h3>
+                    <h3><u>Producer:</u> {{movie.producer}}</h3>
+                    <h3><u>Release Date:</u>  {{movie.release_date}}</h3>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>Star Wars</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="styles/base.css">
+        <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
+        <link rel="stylesheet" href="styles/index.css">
+        <link rel="icon" href="media/death-star.png">
+        <script defer src="js/index.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="media/death-star.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            Star Wars
+        </a>
+        </nav>
+        <div class="jumbotron">
+            <h2 style="color: white;">List View</h2>
+        </div>
+        <h2 id="waitMessage"> Waiting for API </h2>
+        <div id="loader"></div>
+        <div id="results">
+            <h3 id="filterText">Filter/Sort</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <button class="btn btn-danger" @click='sortTitle'>Sort by Movie Title</button>
+                    <button class="btn btn-danger" @click='sortRelease'>Sort by Release Date</button>
+                    <button class="btn btn-danger" @click='sortEpisode'>Sort by Episode</button>
+                </div>
+            </div>
+            <div class="container">
+                <div v-for="x in movies" class="card-area col-lg-4">
+                    <div class="card" style="width: 18rem;">
+                    <a v-bind:href="'detail.html?movieID=' + x.episode_id">
+                    <img class="card-img-top" v-bind:src="'media/episode-' + x.episode_id + '.jpg'" id="moviePic"></a>
+                        <div class="card-body">
+                            <a class="btn btn-link" v-bind:href="'detail.html?movieID=' + x.episode_id">
+                            <h5 class="card-title">{{x.title}}</h5></a>
+                            <p class="card-text">Episode: {{x.episode_id}}</p>
+                            <p>Release Date: {{x.release_date}}</p>
+                            <a v-bind:href="'detail.html?movieID=' + x.episode_id" class="btn btn-primary">View This Movie</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
